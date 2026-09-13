@@ -1,9 +1,30 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "ShortLink — URL Shortener",
-  description: "Shorten your URLs instantly. Fast, free, and reliable.",
+  title: "SHORT/LINK — URL Shortener by C3B1XHUB",
+  description:
+    "Shorten your URLs instantly. Fast, free, and reliable. Development by C3B1XHUB.",
+  icons: { icon: "/brand/c3b1xhub-logo.png" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#080808",
 };
 
 export default function RootLayout({
@@ -12,15 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`${syne.variable} ${jetbrains.variable}`}>
       <body>{children}</body>
     </html>
   );
