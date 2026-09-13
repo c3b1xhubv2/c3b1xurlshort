@@ -10,6 +10,7 @@ function isValidUrl(url: string): boolean {
   }
 }
 
+export const dynamic = "force-dynamic"
 export async function POST(req: NextRequest) {
   try {
     const { url, customSlug } = await req.json();

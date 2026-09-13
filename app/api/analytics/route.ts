@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { getMonthlyVisitors } from "@/lib/analytics"
 
+export const dynamic = "force-dynamic"
 export async function GET() {
   try {
     const monthlyVisitors = await getMonthlyVisitors()

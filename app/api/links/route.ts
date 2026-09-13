@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAllLinks } from "@/lib/kv";
 
+export const dynamic = "force-dynamic"
 export async function GET(req: NextRequest) {
   try {
     const url = new URL(req.url);
